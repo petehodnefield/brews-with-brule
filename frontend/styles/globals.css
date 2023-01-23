@@ -9,4 +9,10 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: #2c2c2c;
+}
+
+button:hover {
+  opacity: .85;
+  transition: 250ms;
 }
