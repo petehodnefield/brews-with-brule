@@ -17,7 +17,7 @@ const Nav = () => {
                     <Link href='/post' className='text-0.75 text-white  ml-8'>Post</Link>
                 </li>
                 <li>
-                    <Link href='/sign-in' className='text-0.75 text-white  ml-8'>Sign in ▾</Link>
+                    <Link href='/login' className='text-0.75 text-white  ml-8'>Login ▾</Link>
                 </li>
 
             </ul>

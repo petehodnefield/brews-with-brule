@@ -1,6 +1,6 @@
 import React from 'react'
 import '@/styles/globals.css'
-
+import Link from 'next/link'
 
 const SmallHeader = () => {
   return (
@@ -9,7 +9,7 @@ const SmallHeader = () => {
         <div className='w-4 h-4 bg-primary rounded-lg'>
         </div>
       </div>
-      <h1 className='text-white text-2 py-5 font-semibold	'>BWB</h1>
+      <Link href='/' className='text-white text-2 py-5 font-semibold	'>BWB</Link>
     </div>
   )
 }

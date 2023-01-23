@@ -7,11 +7,14 @@ module.exports = {
   ],
   theme: {
     fontSize: {
+      xsm: ["10px", "20px"],
       sm: ["14px", "20px"],
       base: ["16px", "24px"],
-      0.75: [".75rem", "28px"],
+      0.75: [".75rem", "1rem"],
+      0.875: [".875rem", "1rem"],
       1: ["1rem", "28px"],
       1.25: ["1.25rem", "28px"],
+      1.5: ["1.5rem", "28px"],
       2: ["2rem", "32px"],
     },
     extend: {
@@ -27,6 +30,10 @@ module.exports = {
       boxShadow: {
         sm: "0 1px 2px  rgba(44, 44, 44, .2)",
       },
+      width: {
+        30: '30rem',
+        34: '34rem'
+      }
     },
   },
   plugins: [],
