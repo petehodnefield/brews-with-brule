@@ -1,7 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-
-
 const about = () => {
     return (
         <>
@@ -40,7 +38,38 @@ const about = () => {
                         <button className='bg-dark text-white w-full h-12'>Join us today!</button>
                     </div>
                 </article>
-
+                <section className='bg-dark text-white flex flex-col items-center pt-12'>
+                    <h2 className='text-2 mb-6'>The Team:</h2>
+                    <article className='flex flex-col items-center px-6 mb-12'>
+                        <img className='h-40 w-40 rounded mb-4' src='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' />
+                        <p className='font-semibold mb-1.5 text-1'>Peter Hodnefield</p>
+                        <p className='text-primary text-0.75 mb-1.5'>CEO</p>
+                        <p className='text-0.875'>
+                            With a passion for creating unforgettable experiences, Peter has built Brews With Brule into a thriving business, known for its selection of craft beers and laid-back atmosphere. A true entrepreneur at heart, Peter is dedicated to providing a space for people to relax, catch up, and make memories over a cold one.
+                        </p>
+                    </article>
+                    <article className='flex flex-col items-center px-6 mb-12'>
+                        <img className='h-40 w-40 rounded mb-4' src='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' />
+                        <p className='font-semibold mb-1.5 text-1'>Tanner Greeley</p>
+                        <p className='text-primary text-0.75 mb-1.5'>CFO</p>
+                        <p className='text-0.875'>
+                            With a background in finance and a keen eye for detail, Tanner plays an instrumental role in ensuring the financial success of the company. He is responsible for managing the company's finances, creating financial strategies and ensuring that the company is financially stable.
+                        </p>
+                    </article>
+                    <article className='flex flex-col items-center px-6 mb-12'>
+                        <img className='h-40 w-40 rounded mb-4' src='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' />
+                        <p className='font-semibold mb-1.5 text-1'>Max Friedrich</p>
+                        <p className='text-primary text-0.75 mb-1.5'>Beer Expert</p>
+                        <p className='text-0.875'>
+                            Max is an expert in all things beer. Whether you're looking to try a new brew or want to learn more about the brewing process, Max is the person to talk to. He is always eager to share his knowledge and help others discover the joy of a perfectly poured pint. When he's not busy at Brews With Brule, you can find Max sampling new beers and seeking out the next great brew.                        </p>                    </article>
+                    <article className='flex flex-col items-center px-6 mb-12'>
+                        <img className='h-40 w-40 rounded mb-4' src='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' />
+                        <p className='font-semibold mb-1.5 text-1'>Logan Swanson</p>
+                        <p className='text-primary text-0.75 mb-1.5'>Social Media Coordinator</p>
+                        <p className='text-0.875'>
+                            Logan is dedicated to growing the company's online presence and building a community of beer enthusiasts. He is always looking for new and innovative ways to connect with customers and share the joys of a cold beer with friends. When he's not busy at Brews With Brule, you can find Logan exploring new breweries and trying new beers.                        </p>
+                    </article>
+                </section>
             </main>
         </>
 
