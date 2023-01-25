@@ -12,7 +12,6 @@ interface Props {
 }
 
 const Header: React.FC<Props> = ({ isOpen, setIsOpen }) => {
-  console.log(isOpen)
   return (
     <header onClick={() => setIsOpen(true)} className='bg-primary shadow-sm  lg:flex  flex items-center justify-around lg:px-30 w-full'>
       <SmallHeader />

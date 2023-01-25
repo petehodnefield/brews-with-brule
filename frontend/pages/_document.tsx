@@ -5,7 +5,6 @@ import { useState } from 'react'
 
 export default function Document() {
   const [isOpen, setIsOpen] = useState(false)
-  console.log(isOpen)
   return (
     <Html lang="en">
 
