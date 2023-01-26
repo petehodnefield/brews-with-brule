@@ -4,7 +4,7 @@ import React from 'react'
 const Footer = () => {
     const currentYear: number = new Date().getFullYear()
     return (
-        <footer className='hidden bg-primary md:flex justify-center flex-col items-center pb-4 pt-6'>
+        <footer className='hidden bottom-0 absolute w-full bg-primary md:flex justify-center flex-col items-center pb-4 pt-6'>
             <h2 className='text-2 text-white mb-4'>BWB</h2>
             <ul className='flex justify-center gap-4 mb-2 items-center'>
                 <Link href='/contact' className='text-white text-0.75 font-semibold	'>Contact </Link>

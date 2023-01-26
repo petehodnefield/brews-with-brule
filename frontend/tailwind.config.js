@@ -34,7 +34,11 @@ module.exports = {
         30: '30rem',
         34: '34rem',
         660: '41.25rem',
-        64: "64rem"
+        64: "64rem",
+        70: "70rem",
+      },
+      borderWidth:{
+        1: '1px'
       }
     },
   },

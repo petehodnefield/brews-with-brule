@@ -1,13 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
+import PostForm from '@/components/Post/PostForm'
 
 
 const post = () => {
-    const handleFormSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        alert('hi')
 
-    }
     return (
         <>
             <Head>
@@ -19,67 +16,7 @@ const post = () => {
             <main>
                 <div className='flex flex-col items-center justify-center pt-12'>
                     <h2 className='font-semibold text-1.5 mb-8 lg:mb-4'>Create a post</h2>
-                    <form onSubmit={(e) => handleFormSubmit(e)} id='postForm' className='w-full px-6 flex flex-col items-center justify-center md:w-3/5'>
-                        <div className='flex items-left flex-col mb-8 w-full lg:w-80'>
-                            <div className='flex justify-between items-center w-full mb-1'>
-                                <label className='font-semibold text-0.875 '>Title</label>
-                                <p className='text-0.875 text-medium italic'>40/40 remaining</p>
-                            </div>
-                            <input className='rounded-lg h-12 p-4 font-semibold text-0.875 border-solid border-light border-2' name='username' type='text' placeholder='ex: Celebrating with 4 tall Hamms...'></input>
-                        </div>
-                        <div className='flex items-left flex-col mb-8 w-full lg:w-80'>
-                            <div className='flex justify-between items-center w-full mb-1'>
-                                <label className='font-semibold text-0.875 '>Description</label>
-                                <p className='text-0.875 text-medium italic'>160/160 remaining</p>
-                            </div>
-                            <textarea className='rounded-lg h-24 p-4 font-semibold text-0.875 border-solid border-light border-2' name='username' ></textarea>
-                        </div>
-                        <div className='flex items-left flex-col mb-8 w-full lg:w-80'>
-
-                            <label className='font-semibold text-0.875  mb-1 '>Location</label>
-                            <input className='rounded-lg h-12 p-4 font-semibold text-0.875 border-solid border-light border-2' name='location' type='text' placeholder="City, State"></input>
-                        </div>
-                        <div className='flex items-left flex-col mb-4 w-full lg:w-80'>
-
-                            <label className='font-semibold text-0.875  mb-1 '>Photo</label>
-                            <input type="file" className='h-12'>
-                            </input>
-                        </div>
-                        <div className='flex items-center justify-center gap-24  mb-4 w-full lg:w-80'>
-                            <p>Tag a friend(s)</p>
-                            <div className=' w-16 h-10 border-solid border-light border-2 rounded-full flex items-center justify-end'>
-                                <div className='bg-primary rounded-full h-8 w-8 mr-1'></div>
-                            </div>
-                        </div>
-
-                        {/* FRIENDS LIST */}
-                        <section className='w-full border-light border-solid border-t-2 mb-8  lg:w-80'>
-                            <div className='flex justify-between items-center w-full border-light border-solid border-b-2 py-4	px-4'>
-                                <div className='flex items-center'>
-                                    <img className='h-16 rounded-lg' src='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' />
-                                    <h4 className='w-60 ml-4'>Max Friedrich</h4>
-                                </div>
-                                <div className='h-6 w-6  border-light border-2'></div>
-                            </div>
-                            <div className='flex justify-between items-center w-full border-light border-solid border-b-2 py-4	px-4'>
-                                <div className='flex items-center'>
-                                    <img className='h-16 rounded-lg' src='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' />
-                                    <h4 className='w-60 ml-4'>Logan Swanson</h4>
-                                </div>
-                                <div className='h-6 w-6  border-light border-2'></div>
-                            </div>
-                            <div className='flex justify-between items-center w-full border-light border-solid border-b-2 py-4 px-4	'>
-                                <div className='flex items-center'>
-                                    <img className='h-16 rounded-lg' src='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80' />
-                                    <h4 className='w-60 ml-4'>Tanner Greeley</h4>
-                                </div>
-                                <div className='h-6 w-6  border-light border-2'></div>
-                            </div>
-                        </section>
-
-                        {/* SUBMIT BTN */}
-                        <button type='submit' className='bg-primary w-44 h-12 text-white mb-12 lg:w-80'>Submit</button>
-                    </form>
+                    <PostForm />
                 </div>
             </main>
         </>
