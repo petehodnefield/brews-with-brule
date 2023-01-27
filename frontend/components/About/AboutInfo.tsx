@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const AboutInfo = () => {
@@ -20,7 +21,9 @@ const AboutInfo = () => {
                     <p className='text-0.875 mb-6 lg:mb-8 lg:w-660 '>
                         Our website is a place for beer enthusiasts of all levels to come and learn more about the world of beer. From reviews of new and exciting brews, to tips and tricks for hosting the perfect beer tasting party with friends, we've got you covered.
                     </p>
-                    <button className='bg-primary text-white w-full h-12 lg:w-48'>Our favorite breweries</button>
+                    <button className='bg-primary text-white w-full h-12 lg:w-48'>
+                        <Link href='/breweries' >Our favorite breweries</Link>
+                    </button>
                 </div>
                 <div className='hidden lg:block h-64 lg:h-96 w-64 lg:w-96'>
                     <img className=' order-1 rounded-full object-cover h-full w-full  ' src='https://images.unsplash.com/photo-1471421298428-1513ab720a8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80' />

@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import SignupForm from '@/components/Signup/SignupForm'
+import Header from '@/components/Header/Header'
 
 
 export default function SignUp() {
@@ -12,6 +13,7 @@ export default function SignUp() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Header />
             <main className='flex justify-center h-screen bg-secondary lg:bg-white'>
                 <div className='flex flex-col items-center justify-start w-full   pt-12 lg:bg-secondary box-border  lg:mt-12 lg:w-34 lg:rounded-sm'>
                     <h2 className=' text-1.5  mb-4'>Sign Up</h2>

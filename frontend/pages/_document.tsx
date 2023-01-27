@@ -1,16 +1,14 @@
 import Footer from '@/components/Footer'
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 import { Html, Head, Main, NextScript } from 'next/document'
-import { useState } from 'react'
 
 export default function Document() {
-  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <Html lang="en">
-
       <Head />
-      <Header isOpen={isOpen} setIsOpen={setIsOpen} />
-      <body>
+      <body >
+
         <Main />
         <NextScript />
         <h1></h1>

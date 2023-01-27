@@ -1,10 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
-import PostForm from '@/components/Post/PostForm'
+import TeamInfo from '@/components/About/TeamInfo'
+import AboutInfo from '@/components/About/AboutInfo'
+import Header from '@/components/Header/Header'
 
-
-const post = () => {
-
+const about = () => {
     return (
         <>
             <Head>
@@ -13,14 +13,14 @@ const post = () => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
-                <div className='flex flex-col items-center justify-center pt-12'>
-                    <h2 className='font-semibold text-1.5 mb-8 lg:mb-4'>Create a post</h2>
-                    <PostForm />
-                </div>
+            <Header />
+            <main className='flex flex-col items-center justify-center'>
+                <AboutInfo />
+                <TeamInfo />
             </main>
         </>
+
     )
 }
 
-export default post
+export default about

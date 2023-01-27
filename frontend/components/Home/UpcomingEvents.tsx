@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const UpcomingEvents = () => {
+
     return (
         <div className='grid justify-start md:justify-center w-screen grid-rows-1	grid-flow-col	overflow-scroll	gap-4 lg:gap-6  px-6  mb-12 lg:mb-0'>
             <article className='w-40 flex flex-col items-center border-light border-1 pb-2 rounded-lg'>
