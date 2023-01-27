@@ -1,4 +1,5 @@
-import Footer from '@/components/Footer'
+import Footer from '@/components/Footer/Footer'
+import FooterMobile from '@/components/Footer/FooterMobile'
 import Header from '@/components/Header/Header'
 import { Html, Head, Main, NextScript } from 'next/document'
 
@@ -14,6 +15,7 @@ export default function Document() {
         <h1></h1>
       </body>
       {/* <Footer /> */}
+      <FooterMobile />
     </Html>
   )
 }

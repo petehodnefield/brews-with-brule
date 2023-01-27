@@ -10,6 +10,7 @@ module.exports = {
       xsm: ["10px", "20px"],
       sm: ["14px", "20px"],
       base: ["16px", "24px"],
+      0.625: [".625rem", "1rem"],
       0.75: [".75rem", "1rem"],
       0.875: [".875rem", "1.5rem"],
       1: ["1rem", "1.5rem"],
