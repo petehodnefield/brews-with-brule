@@ -12,10 +12,9 @@ export default function Document() {
 
         <Main />
         <NextScript />
-        <h1></h1>
       </body>
       {/* <Footer /> */}
-      <FooterMobile />
+      {/* <FooterMobile /> */}
     </Html>
   )
 }

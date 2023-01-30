@@ -4,7 +4,7 @@ import React from 'react'
 const FooterMobile = () => {
 
     return (
-        <footer className='sticky bottom-0 bg-white border-light border-t-1 border-solid grid grid-cols-5 items-center justify-items-center mb-8'>
+        <footer className='sticky bottom-0 bg-white border-light border-t-1 border-solid grid grid-cols-5 items-center justify-items-center mb-8 md:hidden'>
             <Link href='/'>
                 <div className='flex flex-col h-12 items-center justify-center hover:cursor-pointer hover:opacity-70'>
                     <div className='h-6 w-6 flex items-center justify-center bg-primary rounded-lg'>

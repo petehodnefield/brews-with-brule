@@ -1,6 +1,7 @@
 type BreweryInfo = {
     name: string,
     description: string,
+    id: number,
     location: string,
     price: string,
     taps: string,
@@ -12,6 +13,7 @@ type BreweryInfo = {
 export const breweryInfo: BreweryInfo[] = [
     {
         name: '3rd Act Brewery',
+        id: 1,
         description: '3rd Act Brewery, located in Woodbury, MN, is a family-owned and operated brewery that specializes in crafting unique and flavorful beers.',
         location: 'Woodbury, MN',
         price: '$$',
@@ -23,6 +25,8 @@ export const breweryInfo: BreweryInfo[] = [
     },
     {
         name: 'Lift Bridge',
+        id: 2,
+
         description: '3rd Act Brewery, located in Woodbury, MN, is a family-owned and operated brewery that specializes in crafting unique and flavorful beers.',
         location: 'Stillwater, MN',
         price: '$',
@@ -34,6 +38,8 @@ export const breweryInfo: BreweryInfo[] = [
     },
     {
         name: 'Surly',
+        id: 3,
+
         description: '3rd Act Brewery, located in Woodbury, MN, is a family-owned and operated brewery that specializes in crafting unique and flavorful beers.',
         location: 'Minneapolis, MN',
         price: '$$$',

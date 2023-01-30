@@ -16,7 +16,6 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className='relative py-12 flex flex-col items-center lg:py-4'>
         {/* EVENTS SECTION */}
         <section className='flex flex-col items-center justify-start px-6 lg:bg-secondary lg:w-660 lg:rounded lg:py-6  lg:py-4'>
