@@ -6,7 +6,7 @@ const BreweryList = () => {
         <div>
             {breweryInfo.map(brewery => (
                 <div>
-                    <Link href={`/breweries/${brewery.name}`} className='h-12 bg-primary w-40 mb-4 text-white'>{brewery.name}</Link>
+                    <Link href={`/breweries?brewery=${brewery.name}`} className='h-12 bg-primary w-40 mb-4 text-white'>{brewery.name}</Link>
                 </div>
             ))}</div>
     )

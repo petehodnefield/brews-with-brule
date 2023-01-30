@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
-    const currentYear: number = new Date().getFullYear()
+    const currentYear = new Date().getFullYear()
     return (
         <footer className='hidden bottom-0 absolute w-full bg-primary md:flex justify-center flex-col items-center pb-4 pt-6'>
             <h2 className='text-2 text-white mb-4'>BWB</h2>

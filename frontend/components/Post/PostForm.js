@@ -1,14 +1,11 @@
 import React from 'react'
 import PostFriendsList from './PostFriendsList'
 
-const PostForm = () => {
-    const handleFormSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        alert('hi')
 
-    }
+const PostForm = ({ handlePostSubmit }) => {
+
     return (
-        <form onSubmit={(e) => handleFormSubmit(e)} id='postForm' className='w-full px-6 flex flex-col items-center justify-center md:w-3/5'>
+        <form action='/api/posts' method='post' onSubmit={(e) => handlePostSubmit(e)} id='postForm' className='w-full px-6 flex flex-col items-center justify-center md:w-3/5'>
             <div className='flex items-left flex-col mb-8 w-full lg:w-80'>
                 <div className='flex justify-between items-center w-full mb-1'>
                     <label className='font-semibold text-0.875 '>Title</label>
