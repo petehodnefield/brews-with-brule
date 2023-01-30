@@ -1,13 +1,20 @@
 const router = require('express').Router();
 const { User, Posts } = require('../../models');
+const Friend = require('../../models/Friend');
 
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] },
-        include: {
-            model: Posts,
-            attributes: ['id', 'title', 'description']
+        include: [
+            {
+                model: Posts,
+                attributes: ['id', 'title', 'description'],
+          },
+          {
+            model: Friend,
+            attributes: ['id', 'username'],
           }
+        ]
     })
     .then(dbUserData => {
         res.json(dbUserData)
@@ -22,10 +29,18 @@ router.get('/:id', (req, res) => {
     User.findOne({
         where: {id: req.params.id},
         attributes: { exclude: ['password'] },
-        include: {
-            model: Posts,
-            attributes: ['id', 'title', 'description']
-          }} )
+        include: 
+        [
+            {
+                model: Posts,
+                attributes: ['id', 'title', 'description'],
+          },
+          {
+            model: Friend,
+            attributes: ['id', 'username'],
+          }
+        ]
+        } )
     .then(dbUserData => {
         res.json(dbUserData)
     })

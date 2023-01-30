@@ -49,13 +49,13 @@ User.init(
             max: 180
         }
     },
-    // Likes: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //         model: 'likes',
-    //         key: 'id'
-    //     }
-    // },
+    friend_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'friend',
+            key: 'id'
+        }
+    },
     post_id: {
         type: DataTypes.INTEGER,
         references: {
