@@ -7,6 +7,7 @@ router.post('/', (req, res) => {
         title: req.body.title,
         description: req.body.description,
         location: req.body.location,
+        user_id: req.body.user_id
     })
     .then(dbPostData => {
         res.json(dbPostData)

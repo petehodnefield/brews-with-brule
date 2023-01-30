@@ -56,13 +56,13 @@ User.init(
     //         key: 'id'
     //     }
     // },
-    // Posts: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //         model: 'posts',
-    //         key: 'id'
-    //     }
-    // }
+    post_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'posts',
+            key: 'id'
+        }
+    }
     },
     {
         hooks: {

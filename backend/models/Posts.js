@@ -40,14 +40,14 @@ Posts.init(
     },
     photo: {
         type: DataTypes.STRING
-    }
-    // User: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //         model: 'user',
-    //         key: 'id'
-    //     }
-    // },
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'user',
+            key: 'id'
+        }
+    },
 
     },
     {
