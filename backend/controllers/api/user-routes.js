@@ -25,7 +25,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     User.create({
-        name: req.body.name
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
     })
     .then(dbUserData => {
         res.json(dbUserData)
@@ -36,7 +38,7 @@ router.post('/', (req, res) => {
       });
 })
 router.put('/:id', (req, res) => {
-    User.update({name: req.body.name}, {where: {id: req.params.id}})
+    User.update({username: req.body.username}, {where: {id: req.params.id}})
     .then(dbUserData => {
         res.json(dbUserData)
     })
