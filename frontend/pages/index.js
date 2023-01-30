@@ -1,7 +1,6 @@
-import LatestPosts from '@/components/Home/LatestPosts'
-import UpcomingEvents from '@/components/Home/UpcomingEvents'
+import LatestPosts from '../components/Home/LatestPosts'
+import UpcomingEvents from '../components/Home/UpcomingEvents'
 import Head from 'next/head'
-import Header from '@/components/Header/Header'
 
 
 

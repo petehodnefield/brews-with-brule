@@ -1,8 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import TeamInfo from '@/components/About/TeamInfo'
-import AboutInfo from '@/components/About/AboutInfo'
-import Header from '@/components/Header/Header'
+import TeamInfo from '../../components/About/TeamInfo'
+import AboutInfo from '../../components/About/AboutInfo'
 
 const about = () => {
     return (
