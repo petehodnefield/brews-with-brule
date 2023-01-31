@@ -9,4 +9,7 @@ router.use('/posts', postRoutes)
 const friendRoutes = require('./friend-routes')
 router.use('/friends', friendRoutes)
 
+const breweryRoutes = require('./brewery-routes')
+router.use('/breweries', breweryRoutes)
+
 module.exports = router

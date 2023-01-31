@@ -7,6 +7,22 @@ import Head from 'next/head'
 
 export default function Home() {
 
+async function getData() {
+  const response = await fetch('/api/user-routes', {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => {
+    console.log(res)
+    res.json()
+  })
+}
+ 
+
   return (
     <>
       <Head>
@@ -18,7 +34,7 @@ export default function Home() {
       <main className='relative py-12 flex flex-col items-center lg:py-4'>
         {/* EVENTS SECTION */}
         <section className='flex flex-col items-center justify-start px-6 lg:bg-secondary lg:w-660 lg:rounded lg:py-6  lg:py-4'>
-          <h3 className='font-semibold text-1 mb-6'>Upcoming Events</h3>
+          <h3 onClick={() => getData()} className='font-semibold text-1 mb-6'>Upcoming Events</h3>
           <UpcomingEvents />
         </section>
 

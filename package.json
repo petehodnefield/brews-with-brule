@@ -1,0 +1,21 @@
+{
+  "name": "brews-with-brule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "cd \"backend && npm start\" \"cd frontend && npm run dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petehodnefield/brews-with-brule.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petehodnefield/brews-with-brule/issues"
+  },
+  "homepage": "https://github.com/petehodnefield/brews-with-brule#readme"
+}
