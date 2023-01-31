@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Posts } = require('../../models');
 const Friend = require('../../models/Friend');
 
+// Get all users
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] },
@@ -25,6 +26,7 @@ router.get('/', (req, res) => {
       });
 })
 
+// Get user by id
 router.get('/:id', (req, res) => {
     User.findOne({
         where: {id: req.params.id},
@@ -50,6 +52,7 @@ router.get('/:id', (req, res) => {
       });
 })
 
+// Create User
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
@@ -64,8 +67,18 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
       });
 })
+
+// Update user
 router.put('/:id', (req, res) => {
-    User.update({username: req.body.username}, {where: {id: req.params.id}})
+    User.update(
+        {
+            username: req.body.username,
+            password: req.body.password,
+            email: req.body.email
+        }, 
+        {
+            where: {id: req.params.id}
+        })
     .then(dbUserData => {
         res.json(dbUserData)
     })
@@ -74,6 +87,8 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
       });
 })
+
+// Delete user
 router.delete('/:id', (req, res) => {
     User.destroy({
         where: {

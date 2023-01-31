@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
     })
 })
 
-// Get all posts
+// Get all friends
 router.get('/', (req, res) => {
     Friend.findAll({})
     .then(dbPostData => {
@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
     })
 })
 
-// Get post by ID
+// Get friend by ID
 router.get('/:id', (req, res) => {
     Friend.findOne({where: {id: req.params.id}})
     .then(dbPostData => {
@@ -37,9 +37,9 @@ router.get('/:id', (req, res) => {
     })
 })
 
-// Update post
+// Update friend
 router.put('/:id', (req, res) => {
-    Friend.update({title: req.body.title, description: req.body.description}, {where: {id: req.params.id}})
+    Friend.update({username: req.body.username}, {where: {id: req.params.id}})
     .then(dbPostData => {
         res.json(dbPostData)
     })
@@ -48,7 +48,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
-// Delete post
+// Delete friend
 router.delete('/:id', (req, res) => {
     Friend.destroy({where: {id: req.params.id}})
     .then(dbPostData => {
