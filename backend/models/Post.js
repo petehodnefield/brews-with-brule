@@ -1,8 +1,9 @@
 const { Schema, model } = require("mongoose");
+const reactionSchema = require("./Reaction");
 
-const brewerySchema = new Schema(
+const postSchema = new Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
       unique: true,
@@ -19,27 +20,16 @@ const brewerySchema = new Schema(
       required: true,
       max: 30,
     },
-    price: {
-      type: String,
-    },
-    hours: {
-      type: String,
-    },
-    optionsAvailable: {
-      type: String,
-    },
-    rating: {
-      type: String,
-    },
-    image: {
+    photo: {
       type: String,
     },
     createdAt: {
-        type:  Date,
-        default: Date.now,
-        get: timestamp => timestamp
+      type:  Date,
+      default: Date.now,
+      get: timestamp => timestamp
 
       },
+    reactions: [reactionSchema]
   },
   {
     toJSON: {
@@ -48,6 +38,6 @@ const brewerySchema = new Schema(
   }
 );
 
-const Brewerey = model("Brewerey", brewerySchema);
+const Post = model("Post", postSchema);
 
-module.exports = Brewerey;
+module.exports = Post;

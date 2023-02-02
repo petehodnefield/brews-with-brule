@@ -1,88 +1,65 @@
-const {Model, DataTypes} = require('sequelize')
-const  sequelize = require('../config/connection')
-const bcrypt = require('bcrypt');
+const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-class User extends Model {
-    checkPassword(loginPw) {
-        return bcrypt.compareSync(loginPw, this.password);
-      }
-}
-User.init(
-    {
-     id:  { 
-        type: DataTypes.INTEGER,
-        unique: true,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
-    },
+const userSchema = new Schema(
+  {
     username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                max: 20,
-                min: 4
-            }
-    },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-            isEmail: true,
-            max: 30,
-            min: 4
-        }  
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
     },
     password: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: String,
+      required: true,
+      min: 8,
+      max: 20,
     },
-    photo: {
-        type: DataTypes.STRING
+    email: {
+      type: String,
+      required: true,
+      max: 30,
     },
     bio: {
-        type: DataTypes.STRING,
-        validate: {
-            max: 180
-        }
+      type: String,
+      min: 8,
+      max: 280,
     },
-    friend_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'friend',
-            key: 'id'
-        }
+    photo: {
+      type: String,
     },
-    post_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'posts',
-            key: 'id'
+    friends: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         }
-    }
+    ],
+    posts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Post'
+        }
+    ]
+  },
+  {
+    toJSON: {
+      virtuals: true,
     },
-    {
-        hooks: {
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, saltRounds)
-                newUserData.email = await bcrypt.hash(newUserData.email, saltRounds)
-                return newUserData
-            },
+  }
+);
 
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, saltRounds)
-                updatedUserData.email = await bcrypt.hash(updatedUserData.email, saltRounds)
-                return updatedUserData
-            },
-        },
-        sequelize: sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'user'
-    }  
-)
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    next();
+  }
+  this.password = await bcrypt.hash(this.password, saltRounds);
+});
+
+// compare the incoming password with the hashed password
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
+const User = model("User", userSchema);
+
 module.exports = User;
