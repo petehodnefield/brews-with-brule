@@ -112,8 +112,21 @@ const resolvers = {
           ).populate('friends')
 
         return updatedUser, secondUser
+    },
+    removeFriend: async (parent, args) => {
+        const updatedUser = await User.findOneAndUpdate(
+          {_id: args._id},
+          {$pull: {friends: args.friendId}},
+          {new: true}
+        ).populate('friends')
+          const secondUser = await User.findOneAndUpdate(
+            {_id: args.friendId},
+            {$pull: {friends: args._id}},
+            {new: true}
+          ).populate('friends')
 
-    }
+        return updatedUser, secondUser
+    },
   }
 };
 

@@ -56,6 +56,7 @@ const typeDefs = gql`
     updateUser(bio: String!, _id: ID!): User
 
     addFriend(_id: ID!, friendId: ID!): User
+    removeFriend(_id: ID!, friendId: ID!): User
 
     addBrewery(name: String!, description: String!, location: String!, 
       price: String, hours: String, optionsAvailable: String, rating: String): Brewery
