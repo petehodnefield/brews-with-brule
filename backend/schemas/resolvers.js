@@ -64,7 +64,7 @@ const resolvers = {
           },
         )
         return updatedUser
-      },
+      },  
 
       deleteUser: async (parent, args, context) => {
         const deletedUser = await User.deleteOne({_id: args._id},)
@@ -100,6 +100,26 @@ const resolvers = {
 
         return updatedUser, secondUser
     },
+
+    // Reaction Mutation
+    addReaction: async(parent, {username, reactionBody, postId}) => {
+      const reaction = await Post.findOneAndUpdate(
+        {_id: postId},
+        {$push: {reactions: {reactionBody, username: username}}},
+        {new: true}
+      )
+      return reaction
+    },
+
+    removeReaction: async (parent, { postId, reactionId}) => {
+      const removedReaction = await Post.findOneAndUpdate(
+        {_id: postId},
+        {$pull: {reactions: {reactionId}}},
+        {new: true}
+      )
+      return removedReaction 
+    },
+
 
   // Post Mutations
     addPost: async (parent, args) => {

@@ -23,7 +23,7 @@ const typeDefs = gql`
 
   type Reaction {
     _id: ID
-    reactionBody: String
+    reactionBody: Boolean
     createdAt: String
     username: String
   }
@@ -61,6 +61,9 @@ const typeDefs = gql`
 
     addFriend(_id: ID!, friendId: ID!): User
     removeFriend(_id: ID!, friendId: ID!): User
+
+    addReaction(postId: ID!, reactionBody: Boolean!, username: String!): Post
+    removeReaction(postId: ID!, reactionId: ID!): Post
 
 
     addPost(user_id: ID! title: String!, description: String!, location: String!, image: String!): Post

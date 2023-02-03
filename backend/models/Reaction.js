@@ -3,9 +3,8 @@ const { Schema } = require('mongoose');
 const reactionSchema = new Schema(
   {
     reactionBody: {
-      type: String,
+      type: Boolean,
       required: true,
-      maxlength: 280
     },
     username: {
       type: String,
