@@ -20,7 +20,7 @@ const postSchema = new Schema(
       required: true,
       max: 30,
     },
-    photo: {
+    image: {
       type: String,
     },
     createdAt: {
