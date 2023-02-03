@@ -1,5 +1,6 @@
 const { User, Thought, Post } = require('../models');
-const {AuthenticationError} = require('apollo-server-express')
+const {AuthenticationError} = require('apollo-server-express');
+const Brewerey = require('../models/Brewery');
 
 
 const resolvers = {
@@ -20,19 +21,23 @@ const resolvers = {
         .populate('posts')
         .populate('friends');
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
+    user: async (parent, { id }) => {
+      return User.findOne({ id })
         .select('-__v -password')
         .populate('friends')
         .populate('posts');
     },
+    
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Post.find(params).sort({ createdAt: -1 });
     },
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
-    }
+    },
+    breweries: async () => {
+      return Brewerey.find()
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -40,6 +45,22 @@ const resolvers = {
 
       return  user
     },
+    addBrewery: async (parent, args) => {
+      const brewery = await Brewerey.create(args)
+
+      return  brewery
+    },
+    updateUser: async (parent, args, context) => {
+      console.log(args._id)
+
+        const updatedUser = await User.findOneAndUpdate(
+          {_id: args._id},
+          {
+            bio: args.bio
+          },
+        )
+        return updatedUser
+      },
     // login: async (parent, { email, password }) => {
     //   const user = await User.findOne({ email });
     
@@ -78,17 +99,21 @@ const resolvers = {
     //   }
     //   throw new AuthenticationError('You need to be logged in!')
     // },
-    // addFriend: async (parent, {friendId}, context) => {
-    //   if(context.user) {
-    //     const updatedUser = await User.findOneAndUpdate(
-    //       {_id: context.user._id},
-    //       {$addToSet: {friends: friendId}},
-    //       {new: true}
-    //     ).populate('friends')
-    //     return updatedUser
-    //   }
-    //   throw new AuthenticationError("you must be logged in!")
-    // }
+    addFriend: async (parent, args) => {
+        const updatedUser = await User.findOneAndUpdate(
+          {_id: args._id},
+          {$addToSet: {friends: args.friendId}},
+          {new: true}
+        ).populate('friends')
+          const secondUser = await User.findOneAndUpdate(
+            {_id: args.friendId},
+            {$addToSet: {friends: args._id}},
+            {new: true}
+          ).populate('friends')
+
+        return updatedUser, secondUser
+
+    }
   }
 };
 
