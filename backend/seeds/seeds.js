@@ -4,7 +4,7 @@ const breweryData = require('./data/brewery-data')
 const postData = require('./data/post-data')
 const userData = require('./data/user-data')
 
-db.once("open", async () => {
+const seedDB = async () => {
     await User.deleteMany()
     await Post.deleteMany()
     await Brewery.deleteMany()
@@ -31,5 +31,8 @@ db.once("open", async () => {
     }
    
     console.log('Data seeded!')
-})
+}
 
+
+
+module.exports = seedDB;

@@ -5,6 +5,7 @@ const path = require("path");
 // import our typeDefs and resolvers
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
+const seedDB = require("./seeds/seeds");
 
 const PORT = process.env.PORT || 3001;
 // create a new Apollo server and pass in our schema data
@@ -39,7 +40,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
     res.sendFile(path.join(__dirname, "./index.html"));
   });
   db.once("open", async () => {
-
+    await seedDB()
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       // log where we can go to test our GQL API
