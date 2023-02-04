@@ -48,6 +48,6 @@ const brewerySchema = new Schema(
   }
 );
 
-const Brewerey = model("Brewerey", brewerySchema);
+const Brewery = model("Brewerey", brewerySchema);
 
-module.exports = Brewerey;
+module.exports = Brewery;
