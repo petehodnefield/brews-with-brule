@@ -2,15 +2,11 @@ import LatestPosts from '../components/Home/LatestPosts'
 import UpcomingEvents from '../components/Home/UpcomingEvents'
 import Head from 'next/head'
 
-import { useQuery, gql } from '@apollo/client'
-import { POSTS } from '../utils/queries'
 
 
 export default function Home() {
 
-  const {loading, error, data} = useQuery(POSTS)
-  console.log(data)
- 
+
   return (
     <>
       <Head>
