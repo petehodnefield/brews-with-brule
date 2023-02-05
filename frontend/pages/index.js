@@ -2,27 +2,15 @@ import LatestPosts from '../components/Home/LatestPosts'
 import UpcomingEvents from '../components/Home/UpcomingEvents'
 import Head from 'next/head'
 
-
+import { useQuery, gql } from '@apollo/client'
+import { POSTS } from '../utils/queries'
 
 
 export default function Home() {
 
-async function getData() {
-  const response = await fetch('/api/user-routes', {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(res => {
-    console.log(res)
-    res.json()
-  })
-}
+  const {loading, error, data} = useQuery(POSTS)
+  console.log(data)
  
-
   return (
     <>
       <Head>
