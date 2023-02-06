@@ -3,36 +3,48 @@ import React, {useEffect, useState} from 'react'
 import BreweryImage from '../../components/BreweriesIndividual/BreweryImage'
 import BreweryData from '../../components/BreweriesIndividual/BreweryData'
 import BreweryName from '../../components/BreweriesIndividual/BreweryName'
-import { getBreweryData } from '../../utils/get-brewery'
 import BreweryCTA from '../../components/Breweries/BreweryCTA'
 import BreweryMap from '../../components/Breweries/BreweryMap'
 import BreweryList from '../../components/Breweries/BreweryList'
-const BreweryDetails =  () => {
-    const data = useRouter().query.data
-    const [thisBrewery, setThisBrewery] = useState({})
-console.log(thisBrewery)
-    useEffect(() => {
-        getBreweryData(data, setThisBrewery)
-    }, [])
 
+import { useQuery, gql } from '@apollo/client'
+import { SINGLE_BREWERY } from '../../utils/queries'
+const BreweryDetails =  () => {
+    const [breweryID, setBreweryID] = useState('')
+    const params = useRouter().query.id
+    useEffect(() => {
+        setBreweryID(params)
+    },[])
+ 
+    console.log('breweryID', breweryID)
+
+    const {loading, error, data } = useQuery(SINGLE_BREWERY, {
+       variables: {id: "63e0e696de863a01a904f810"} 
+    })
+
+
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>Error: {error.message}</p>
+
+    const breweryGuy = data.brewery
+
+    console.log('data brewery', breweryGuy)
     return (
         <div>
-        {!thisBrewery ? (
-            <div>Loading</div>
-        ): (
+            hi
             <section className='flex flex-col justify-start items-center w-full h-screen'>
-                <BreweryImage props={thisBrewery}></BreweryImage>
+                <BreweryImage></BreweryImage>
                 <section className='xl:flex xl:justify-around xl:w-70'>
                     <article className=' flex flex-col '>
-                        <BreweryName props={thisBrewery}></BreweryName>
-                        <BreweryData props={thisBrewery}></BreweryData>
+                        <BreweryName  ></BreweryName>
+                        <BreweryData ></BreweryData>
                         <BreweryCTA></BreweryCTA>
                     </article>
                     <BreweryMap></BreweryMap>
                 </section>
-                <BreweryList setThisBrewery={setThisBrewery}></BreweryList>
+                {/* <BreweryList setThisBrewery={setThisBrewery}></BreweryList> */}
             </section>
-        )}
+        
         </div>
     )
 }

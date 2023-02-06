@@ -1,5 +1,5 @@
 import React from 'react'
-import { teamInfo } from '@/data/about-data'
+import { teamInfo } from '../../data/about-data'
 const TeamInfo = () => {
     return (
         <section id='team' className=' w-screen bg-dark text-white flex flex-col items-center pt-12 lg:pt-16'>
