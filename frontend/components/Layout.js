@@ -4,6 +4,7 @@ import Head from 'next/head'
 
 
 export default function Layout({ children }) {
+
     return (
         <div className="h-screen">  
             <Head>
