@@ -30,8 +30,11 @@ class AuthService {
 
     // Retrieve token from localStorage
     getToken() {
+            if (typeof window !== 'undefined') {
+    // Perform localStorage action
+    return localStorage.getItem('id_token')
+}
         // Retrieves the user token from localStorage
-        return localStorage.getItem('id_token')
     }
 
     // set token to localStorage and reload page to homepage

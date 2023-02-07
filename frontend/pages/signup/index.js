@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import SignupForm from '@/components/Signup/SignupForm'
-import Header from '@/components/Header/Header'
+import SignupForm from '../../components/Signup/SignupForm'
+import Header from '../../components/Header/Header'
 
 
 export default function SignUp() {
