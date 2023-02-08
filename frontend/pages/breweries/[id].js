@@ -6,29 +6,21 @@ import BreweryName from '../../components/BreweriesIndividual/BreweryName'
 import BreweryCTA from '../../components/Breweries/BreweryCTA'
 import BreweryMap from '../../components/Breweries/BreweryMap'
 import BreweryList from '../../components/Breweries/BreweryList'
+import { initializeApollo } from '../../lib/apollo'
 
 import { useQuery, gql } from '@apollo/client'
 import { SINGLE_BREWERY } from '../../utils/queries'
-const BreweryDetails =  () => {
-    const [breweryID, setBreweryID] = useState('')
-    const params = useRouter().query.id
-    useEffect(() => {
-        setBreweryID(params)
-    },[])
- 
-    console.log('breweryID', breweryID)
-
-    const {loading, error, data } = useQuery(SINGLE_BREWERY, {
-       variables: {id: "63e0e696de863a01a904f810"} 
+const BreweryDetails =  ({queryID}) => {
+    console.log('queryId', queryID)
+    const {data, loading, error} = useQuery(SINGLE_BREWERY, {
+        variables: {id: "63e39855064b43c4a3804818"}
     })
 
+    console.log(data)
+    if(loading) return <h1> Loading...</h1>
+    if(error || !data) return <h1> Error</h1>
+    // if(data.id.length === 0) return <h2>404 | Not Found</h2>
 
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>Error: {error.message}</p>
-
-    const breweryGuy = data.brewery
-
-    console.log('data brewery', breweryGuy)
     return (
         <div>
             hi
@@ -44,9 +36,20 @@ const BreweryDetails =  () => {
                 </section>
                 {/* <BreweryList setThisBrewery={setThisBrewery}></BreweryList> */}
             </section>
-        
         </div>
     )
 }
-
 export default BreweryDetails
+
+export const getServerSideProps = async({query}) => {
+    const queryID = query.id
+
+    const apolloClient = initializeApollo()
+    await apolloClient.query({
+        query: SINGLE_BREWERY,
+        variables: {id: queryID},
+    })
+    return {
+        props: {initializeApolloState: apolloClient.cache.extract(), queryID}
+    }
+}
