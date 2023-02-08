@@ -31,6 +31,9 @@ module.exports = {
       boxShadow: {
         sm: "0 1px 2px  rgba(44, 44, 44, .2)",
       },
+      height: {
+        eightyvh: '80vh'
+      },
       width: {
         30: '30rem',
         34: '34rem',
