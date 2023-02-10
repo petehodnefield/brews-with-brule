@@ -15,7 +15,8 @@ const resolvers = {
         .populate('friends')
         return userData
       }
-        
+      throw new AuthenticationError('Not logged in');
+
     },
 
     // User Queries
@@ -46,11 +47,11 @@ const resolvers = {
 
     // Brewery Queries
     breweries: async () => {
-      return Brewerey.find()
+      return Brewery.find()
     },
 
-    brewery: async (parent, {id}) => {
-      return Brewerey.findOne({ id })
+    brewery: async (parent, {_id}) => {
+      return Brewery.findOne({ _id })
       .select('-__v -password')
     },
   },
@@ -148,12 +149,12 @@ const resolvers = {
     addPost: async (parent, args) => {
       const post = await Post.create(args)
 
-      const updateUserPosts = User.findOneAndUpdate(          
+      await User.findByIdAndUpdate(          
           {_id: args.user_id},
-          {$addToSet: {posts: post._id}},
+          {$push: {posts: post._id}},
           {new: true}
         )
-      return  updateUserPosts
+      return  post
     },
 
     updatePost: async (parent, args) => {
