@@ -1,54 +1,85 @@
 import React, {useState} from 'react'
 import PostFriendsList from './PostFriendsList'
-
+import {  useMutation } from '@apollo/client';
+import { CREATE_USER } from '../../utils/mutations';
 
 const PostForm = () => {
+
     const [postInfo, setPostInfo] = useState({
         title: '',
         description: '',
         location: '',
-        photo: ''
     })
-    console.log(postInfo)
 
     const handleChange = (e) => {
-        console.log(e.target.value)
-        const {name: value} = e.target
-        setPostInfo(prevState => ({
-            ...prevState,
+        const {name, value} = e.target
+        setPostInfo({
+            ...postInfo,
             [name]: value
-        }))
+        })
     }
 
-    const handlePostSubmit = (e) => {
+    const [addPost, {error}] = useMutation(CREATE_USER)
+
+    const handleFormSubmit = async (e) => {
         e.preventDefault()
+
+        try{
+            await addPost({
+                variables: {
+                    userId: '63e4e7503d479ced5b892e13',
+                    title: postInfo.title, 
+                    description: postInfo.description, 
+                    location: postInfo.location, 
+                },
+            })
+        } catch (e){
+            console.error(e)
+        }
     }
 
     return (
-        <form action='/api/posts' method='post' onSubmit={(e) => handlePostSubmit(e)} id='postForm' className='w-full px-6 flex flex-col items-center justify-center md:w-3/5'>
+        <form  onSubmit={handleFormSubmit} id='postForm' className='w-full px-6 flex flex-col items-center justify-center md:w-3/5 pb-8'>
             <div className='flex items-left flex-col mb-8 w-full lg:w-80'>
                 <div className='flex justify-between items-center w-full mb-1'>
                     <label className='font-semibold text-0.875 '>Title</label>
                     <p className='text-0.875 text-medium italic'>40/40 remaining</p>
                 </div>
-                <input className='rounded-lg h-12 p-4 font-semibold text-0.875 border-solid border-light border-2' name='username' type='text' placeholder='ex: Celebrating with 4 tall Hamms...' onChange={handleChange}></input>
+                <input 
+                    className='rounded-lg h-12 p-4 font-semibold text-0.875 border-solid border-light border-2' 
+                    name='title' 
+                    type='text' 
+                    placeholder='ex: Celebrating with 4 tall Hamms...'
+                    onChange={handleChange}></input>
             </div>
+
             <div className='flex items-left flex-col mb-8 w-full lg:w-80'>
                 <div className='flex justify-between items-center w-full mb-1'>
                     <label className='font-semibold text-0.875 '>Description</label>
                     <p className='text-0.875 text-medium italic'>160/160 remaining</p>
                 </div>
-                <textarea className='rounded-lg h-24 p-4 font-semibold text-0.875 border-solid border-light border-2' name='username' ></textarea>
+                <textarea 
+                    className='rounded-lg h-24 p-4 font-semibold text-0.875 border-solid border-light border-2' 
+                    name='description' 
+                    onChange={handleChange}
+                ></textarea>
             </div>
-            <div className='flex items-left flex-col mb-8 w-full lg:w-80'>
 
+            <div className='flex items-left flex-col mb-8 w-full lg:w-80'>
                 <label className='font-semibold text-0.875  mb-1 '>Location</label>
-                <input className='rounded-lg h-12 p-4 font-semibold text-0.875 border-solid border-light border-2' name='location' type='text' placeholder="City, State"></input>
+                 <input 
+                    onChange={handleChange} 
+                    className='rounded-lg h-12 p-4 font-semibold text-0.875 border-solid border-light border-2' 
+                    name='location' 
+                    type='text' 
+                    placeholder="City, State">
+                </input>
             </div>
+
             <div className='flex items-left flex-col mb-4 w-full lg:w-80'>
 
                 <label className='font-semibold text-0.875  mb-1 '>Photo</label>
-                <input type="file" className='h-12'>
+                <input type="file" className='h-12' name='photo'>
                 </input>
             </div>
             <div className='flex items-center justify-center gap-24  mb-4 w-full lg:w-80'>
@@ -65,5 +96,6 @@ const PostForm = () => {
             <button type='submit' className='bg-primary w-44 h-12 text-white mb-12 lg:w-80'>Submit</button>
         </form>)
 }
+
 
 export default PostForm

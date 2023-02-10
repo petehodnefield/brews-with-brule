@@ -4,7 +4,7 @@ import { useQuery, gql } from '@apollo/client'
 import { BREWERIES } from '../../utils/queries'
 
 
-const BreweryList = () => {
+const BreweryList = ({thisBrewery}) => {
     const {loading, error, data} = useQuery(BREWERIES)
     
     if (loading) return <p>Loading...</p>
@@ -14,18 +14,20 @@ const BreweryList = () => {
 
     console.log('indi', breweries)
     return (
-        <div className='px-6 flex flex-col items-center mb-16'>
-            <h2 className='text-1.5 mb-4 font-semibold text-center	'> Brule's favorite breweries:</h2>
-            <div className=' w-full flex-col flex lg:flex-row lg:gap-4'>
+        <div className='flex flex-col items-center  w-full pb-8 mb-20'>
+            <h2 className='text-1.5 mb-4 text-center	font-semibold'> Other breweries:</h2>
+            <div className='flex flex-col px-6 w-full items-center justify-center lg:flex-row lg:gap-4 '>
                 {breweries.map(brewery => (
-                <Link className='w-full'  key={brewery.name}  href={`/breweries/${brewery._id}`} >
-                        <button className='h-12 bg-primary w-full lg:w-40 mb-2 lg:mb-4 text-white rounded'>{brewery.name}</button>
+                     brewery.name === thisBrewery.name ? '' : 
+                     <Link  className='w-full lg:w-60'  key={brewery.name}  href={`/breweries/${brewery._id}`} >
+                        <button className='h-12 bg-primary w-full mb-2 lg:mb-4 text-white rounded'>{brewery.name}</button>
                     </Link>
                 ))}
             </div>
         </div>
     )
 }
+
 export const getStaticProps = async() => {
     const apolloClient = initializeApollo()
     await apolloClient.query({

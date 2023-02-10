@@ -26,3 +26,17 @@ export const CREATE_USER = gql`
         }
     }
 `
+
+export const CREATE_POST = gql`
+mutation AddPost($userId: ID!, $title: String!, $description: String!, $location: String!, $image: String!) {
+    addPost(user_id: $userId, title: $title, description: $description, location: $location, image: $image) {
+      _id
+      title
+      description
+      location
+      image
+    
+      createdAt
+    }
+  }
+`

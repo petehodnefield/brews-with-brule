@@ -20,7 +20,7 @@ const PostDetails = ({queryID}) => {
   const friendRowImageStyles = 'relative h-12 w-12 bg-cover bg-center mr-4'
 
   return (
-    <section className='h-screen lg:flex lg:justify-center lg:h-eightyvh' >
+    <section className='h-full lg:flex lg:justify-center lg:h-eightyvh' >
       <article className=' lg:flex lg:w-70 lg:justify-center lg:py-12'>
         <div className='flex flex-col justify-start'>
           <div
@@ -38,7 +38,7 @@ const PostDetails = ({queryID}) => {
           </div>
         </div>
         {/* Members Wrapper */}
-        <div className=' border-b-1'>
+        <div className=' border-b-1 pb-12'>
           <h3 className='text-1 font-bold mb-1 pl-4 md:pl-12'>Members in this photo:</h3>
           {/* Friends row */}
           <div className={friendRowStyles}>
