@@ -10,6 +10,7 @@ module.exports = {
       xsm: ["10px", "20px"],
       sm: ["14px", "20px"],
       base: ["16px", "24px"],
+      0.5: [".5rem", "1rem"],
       0.625: [".625rem", "1rem"],
       0.75: [".75rem", "1rem"],
       0.875: [".875rem", "1.5rem"],
@@ -17,6 +18,7 @@ module.exports = {
       1.25: ["1.25rem","1.5rem"],
       1.5: ["1.5rem", "1.5rem"],
       2: ["2rem", "1.5rem"],
+      2.5: ["2.5rem", "1.5rem"],
     },
     extend: {
       colors: {

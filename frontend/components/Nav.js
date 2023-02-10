@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import Link from 'next/link'
 import auth from '../utils/auth'
 
-const Nav = () => {
-    const [navSelected, setNavSelected] = useState('home')
+const Nav = ({isOpen, setIsOpen, navSelected, setNavSelected}) => {
+   
  
     const transitionStyle = "hover:text-dark transition ease-in duration-125"
 
@@ -15,7 +15,7 @@ const Nav = () => {
 
 
     return (
-        <nav className='hidden lg:flex'>
+        <nav className='hidden md:flex'>
             <ul className='flex items-center'>
                 <li >
                     <Link 
@@ -41,43 +41,71 @@ const Nav = () => {
                         >   About
                     </Link>  
                 </li>
-                <li>
-                    <Link 
-                        href='/post' 
-                        className={`text-0.75 text-white ml-8 ${transitionStyle}  ${navSelected === 'post' ? 'underline': ''}`} 
-                        onClick={() => setNavSelected('post')}
-                        >   Post
-                    </Link>  
-                </li>  
-                <li>
+           
+                {/* <li>
                     <Link 
                         href='/signup' 
                         className={`text-0.75 text-white ml-8 ${transitionStyle}  ${navSelected === 'post' ? 'underline': ''}`} 
                         onClick={() => setNavSelected('post')}
                         >   Signup
                     </Link>  
-                </li>  
-                <li>
+                </li>   */}
                 {auth.loggedIn() ? (
-                    <Link 
-                        href='/' 
-                        className={`  ml-8 ${transitionStyle} ${navSelected === 'login' ? 'underline': ''}`} 
-                        onClick={logout}
-                        >   <button className='text-0.75 text-primary bg-white rounded-full h-8 w-20'>Logout</button>
-                    </Link>  
-
+                    < >
+                        <li>
+                            <Link 
+                                href='/post' 
+                                className={`text-0.75 text-white ml-8 ${transitionStyle}  ${navSelected === 'post' ? 'underline': ''}`} 
+                                onClick={() => setNavSelected('post')}
+                                >   Post
+                            </Link>  
+                        </li>  
+                        <li>
+                            <Link 
+                                href='/' 
+                                className={`  ml-8 ${transitionStyle} ${navSelected === 'login' ? 'underline': ''}`} 
+                                onClick={logout}
+                                >   <button className='text-0.75 text-primary bg-white rounded-full h-8 w-20'>Logout</button>
+                            </Link>  
+                         </li>                 
+                    </>
+                 
                     ): (
-                        <Link 
-                            href='/login' 
-                            className={`text-0.75 text-white ml-8 ${transitionStyle} ${navSelected === 'login' ? 'underline': ''}`} 
-                            onClick={() => setNavSelected('login')}
-                            >   Login
-                        </Link>  
-                    )}
-                </li>
-            
-              
+                        <li className='relative'    
+                            onMouseLeave={() => {
+                                setIsOpen(false)
+                            }}>
+                            <Link 
+                                href='/login' 
+                                className={` text-0.75 text-white ml-8 ${transitionStyle} ${navSelected === 'login' ? 'underline': ''}`} 
+                                onMouseOver={() => {
+                                    setIsOpen(true)
+                                    setNavSelected('login')
+                                }}
+                       
 
+                                onClick={() => setNavSelected('login')}
+                                >   Login <span className='text-0.5'>▼</span>
+                            </Link>  
+                            {isOpen ? (
+                                <div className='absolute top-5 left-5 flex justify-center items-center w-16	h-5	bg-secondary rounded-full hover:bg-dark transition ease-in duration-125'>
+                                    <Link 
+                                        href='/signup' 
+                                        className={`text-0.75 w-full text-dark hover:text-white transition ease-in duration-125 flex justify-center `} 
+                                        onMouseOver={() => setIsOpen(true)}
+                                        onMouseLeave={() => {
+                                            setIsOpen(false)
+                                        }}
+                                        onClick={() => setNavSelected('login')}
+                                        >   Signup 
+                                    </Link>  
+                                </div>
+                            ): (
+                                ''
+                            )}
+                        </li>
+                    )}
+                
 
             </ul>
         </nav>

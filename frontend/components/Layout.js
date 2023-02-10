@@ -14,7 +14,7 @@ export default function Layout({ children }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="../public/favicon.ico" />
             </Head>
-            <div className="relative h-screen"             style={{marginBottom: '-5rem'}}
+            <div className=" h-screen"             style={{marginBottom: '-5rem'}}
 >
                 <Header />
                 <main >{children}</main>

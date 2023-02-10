@@ -23,7 +23,7 @@ const BreweryDetails =  ({queryID,}) => {
     console.log('this', thisBrewery)
 
     return (
-        <div className='h-screen'>
+        <div className='h-full'>
             
             <section className='flex flex-col justify-start items-center w-full h-full'>
                 <BreweryImage></BreweryImage>

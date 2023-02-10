@@ -12,15 +12,14 @@ const BreweryList = ({thisBrewery}) => {
 
     const breweries = data.breweries
 
-    console.log('indi', breweries)
     return (
-        <div className='flex flex-col items-center  w-full pb-8 mb-20'>
+        <div className='w-4/5 px-6 flex flex-col items-center  '>
             <h2 className='text-1.5 mb-4 text-center	font-semibold'> Other breweries:</h2>
-            <div className='flex flex-col px-6 w-full items-center justify-center lg:flex-row lg:gap-4 '>
+            <div className='w-full flex-col flex lg:flex-row  justify-center lg:gap-4 pb-12'>
                 {breweries.map(brewery => (
                      brewery.name === thisBrewery.name ? '' : 
                      <Link  className='w-full lg:w-60'  key={brewery.name}  href={`/breweries/${brewery._id}`} >
-                        <button className='h-12 bg-primary w-full mb-2 lg:mb-4 text-white rounded'>{brewery.name}</button>
+                        <button className='h-12 bg-primary w-full lg:w-full mb-2 lg:mb-4 text-white rounded'>{brewery.name}</button>
                     </Link>
                 ))}
             </div>

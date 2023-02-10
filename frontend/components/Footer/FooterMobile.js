@@ -8,7 +8,7 @@ const FooterMobile = () => {
     const menuOptions = ['home', 'about', 'breweries', 'contact', 'post']
 
     return (
-        <footer className='fixed bottom-0 w-full bg-white  border-light border-t-1 border-solid grid grid-cols-5 items-center justify-items-center md:hidden'
+        <footer className='fixed bottom-0 w-full bg-white  border-medium border-t-1 border-solid grid grid-cols-5 items-center justify-items-center md:hidden'
             >
             {menuOptions.map(option => (
                  <Link key={option} onClick={() => setNavSelected(option)} href={`/${option === 'home' ? '': option}`}>
