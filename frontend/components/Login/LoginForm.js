@@ -32,7 +32,7 @@ const LoginForm = () => {
         Auth.login(data.login.token)
         console.log(data.login.token)
         } catch(e) {
-            console.log(e)
+            console.log(e, 'hi')
         console.error(e)
         }
 
