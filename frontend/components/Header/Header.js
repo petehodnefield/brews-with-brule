@@ -5,9 +5,8 @@ import Link from 'next/link'
 import Hamburger from './Hamburger'
 import { Icon } from '@iconify/react';
 
-export default function Header() {
-  const [navSelected, setNavSelected] = useState('home')
-  const [isOpen, setIsOpen] = useState(false)
+export default function Header({setNavSelected, navSelected, setIsOpen, isOpen}) {
+
 
   return (
     <header className=' relative bg-primary shadow-sm  lg:flex  flex items-center justify-around lg:px-30 w-full'>

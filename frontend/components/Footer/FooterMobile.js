@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import React, {useState} from 'react'
 
-const FooterMobile = () => {
+const FooterMobile = ({setNavSelected, navSelected}) => {
     
-    const [navSelected, setNavSelected] = useState('home')
+    console.log('nav', navSelected)
 
     const menuOptions = ['home', 'about', 'breweries', 'contact', 'post']
 

@@ -2,9 +2,12 @@ import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
 import Head from 'next/head'
 import FooterMobile from "./Footer/FooterMobile"
+import React, {useState} from "react"
 
 
 export default function Layout({ children }) {
+    const [navSelected, setNavSelected] = useState('home')
+    const [isOpen, setIsOpen] = useState(false)
 
     return (
         <div className="min-h-screen	flex flex-col">  
@@ -15,10 +18,25 @@ export default function Layout({ children }) {
                 <link rel="icon" href="../public/favicon.ico" />
             </Head>
           
-                <Header />
-                <main  className="flex-grow">{children}</main>
-                <Footer />
-                <FooterMobile/>
+                <Header
+                    navSelected={navSelected}
+                    setNavSelected={setNavSelected}
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                />
+                <main  
+                    className="flex-grow" 
+                    setNavSelected={setNavSelected}
+                    >{children}
+                </main>
+                <Footer 
+                   setNavSelected={setNavSelected}
+                />
+                <FooterMobile
+                    setNavSelected={setNavSelected}
+                    navSelected={navSelected}
+
+                />
       </div>
       
     )

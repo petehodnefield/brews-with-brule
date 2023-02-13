@@ -3,7 +3,7 @@ import React from 'react'
 
 const AboutInfo = () => {
     return (
-        <div className='flex flex-col items-center justify-center'>
+        <div className='flex flex-col items-center justify-center pb-4 lg:pb-12'>
             <article className='flex flex-col pt-12 relative mb-12 lg:w-4/5 lg:flex-row lg:gap-12 lg:px-8 lg:justify-between  xl:w-64'>
                 <div className='px-6 md:px-40 lg:px-0  lg:w-660'>
                     <h2 className='text-1.5 italic mb-3 lg:mb-4'>About us</h2>
