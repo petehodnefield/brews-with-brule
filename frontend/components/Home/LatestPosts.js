@@ -13,6 +13,7 @@ const LatestPosts = () => {
 
     const posts = data.posts
     console.log(posts)
+    
 
     return (
         <section className='flex flex-col items-center justify-start  lg:py-8'>
@@ -22,13 +23,10 @@ const LatestPosts = () => {
                 {posts.map(post => (
                     <article key={post.title} className='md:w-96 flex flex-col items-center justify-start mb-8 lg:mb-0'>
                         <div className='relative h-56 w-4/5 bg-cover bg-center mb-4' style={{ backgroundImage: `url(https://images.unsplash.com/photo-1600788886242-5c96aabe3757?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80})` }}>
-                            {auth.loggedIn() ? (
-                                <Link href={`/post/${post._id}`} className=' absolute bottom-0 right-0'>
+                                <Link href={`${auth.loggedIn() ? `/post/${post._id}`: '/login'}`} className=' absolute bottom-0 right-0'>
                                     <button className='  h-10 bg-primary text-white  font-semibold text-0.875 w-28'>Full Post</button>
                                 </Link>
-                            ): (
-                                ''
-                            )}
+                         
                         
                         </div>
                         <p className='font-semibold text-0.875 mb-2'>{post.title}</p>
