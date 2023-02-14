@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import PostFriendsList from './PostFriendsList'
 import {  useMutation } from '@apollo/client';
-import { CREATE_USER } from '../../utils/mutations';
+import { CREATE_POST} from '../../utils/mutations';
 
 const PostForm = () => {
 
@@ -19,7 +19,7 @@ const PostForm = () => {
         })
     }
 
-    const [addPost, {error}] = useMutation(CREATE_USER)
+    const [addPost, {error}] = useMutation(CREATE_POST)
 
     const handleFormSubmit = async (e) => {
         e.preventDefault()
@@ -31,11 +31,16 @@ const PostForm = () => {
                     title: postInfo.title, 
                     description: postInfo.description, 
                     location: postInfo.location, 
+                    image: 'https://images.unsplash.com/photo-1600788886242-5c96aabe3757?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80'
                 },
+
+                
             })
         } catch (e){
             console.error(e)
         }
+
+        await window.location.replace('/')
     }
 
     return (

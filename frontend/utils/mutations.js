@@ -35,7 +35,6 @@ mutation AddPost($userId: ID!, $title: String!, $description: String!, $location
       description
       location
       image
-    
       createdAt
     }
   }

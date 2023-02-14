@@ -3,7 +3,6 @@ import Footer from "./Footer/Footer"
 import Head from 'next/head'
 import FooterMobile from "./Footer/FooterMobile"
 import React, {useState} from "react"
-import hi from '../public/favicon/favicon.ico'
 
 export default function Layout({ children }) {
     const [navSelected, setNavSelected] = useState('home')
@@ -28,7 +27,7 @@ export default function Layout({ children }) {
                 />
                 <main  
                     className="flex-grow" 
-                    setNavSelected={setNavSelected}
+                    // setNavSelected={setNavSelected}
                     >{children}
                 </main>
                 <Footer 

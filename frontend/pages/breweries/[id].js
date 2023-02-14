@@ -14,13 +14,11 @@ const BreweryDetails =  ({queryID,}) => {
         variables: {id: queryID}
     })
 
-    console.log(data)
     if(loading) return <h1> Loading...</h1>
     if(error || !data) return <h1> Error</h1>
     if(data.brewery.length === 0) return <h2>404 | Not Found</h2>
 
     const thisBrewery = data.brewery
-    console.log('this', thisBrewery)
 
     return (
         <div className='h-full'>

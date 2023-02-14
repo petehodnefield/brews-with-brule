@@ -17,7 +17,6 @@ const Nav = ({isOpen, setIsOpen, navSelected, setNavSelected}) => {
         auth.logout()
     }
 
-    console.log(auth.loggedIn())
 
 
     if (!hydrated) return null
@@ -51,9 +50,9 @@ const Nav = ({isOpen, setIsOpen, navSelected, setNavSelected}) => {
            
                  <li>
                     <Link 
-                        href='/post' 
+                        href={`${auth.loggedIn() ? '/post': '/login'}`} 
                         className={`text-0.75 text-white ml-8 ${transitionStyle}  ${navSelected === 'post' ? 'underline': ''}`} 
-                        onClick={() => setNavSelected('post')}
+                        onClick={() => setNavSelected(`${auth.loggedIn() ? 'post': 'login'}`)}
                         >   Post
                     </Link>  
                 </li>  

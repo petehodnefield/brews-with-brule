@@ -3,8 +3,6 @@ import React, {useState} from 'react'
 
 const FooterMobile = ({setNavSelected, navSelected}) => {
     
-    console.log('nav', navSelected)
-
     const menuOptions = ['home', 'about', 'breweries', 'contact', 'post']
 
     return (
