@@ -99,7 +99,7 @@ const Nav = ({isOpen, setIsOpen, navSelected, setNavSelected}) => {
                         <Link
                         href='/'
                         className={`  ml-8 ${transitionStyle} ${navSelected === 'login' ? 'underline': ''}`}
-                        onClick={logout}
+                        onClick={logout }
                         >   <button className='text-0.75 text-primary bg-white rounded-full h-8 w-20'>Logout</button>
                         </Link>
                     </li>

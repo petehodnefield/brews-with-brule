@@ -19,7 +19,7 @@ const BreweryList = ({thisBrewery}) => {
                 {breweries.map(brewery => (
                      brewery.name === thisBrewery.name ? '' : 
                      <Link  className='w-full lg:w-60'  key={brewery.name}  href={`/breweries/${brewery._id}`} >
-                        <button className='h-12 bg-primary w-full lg:w-full mb-2 lg:mb-4 text-white rounded'>{brewery.name}</button>
+                        <button className='h-12 bg-primary w-full  mb-2 lg:mb-4 text-white rounded'>{brewery.name}</button>
                     </Link>
                 ))}
             </div>

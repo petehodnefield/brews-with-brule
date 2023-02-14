@@ -16,10 +16,10 @@ const BreweryList = () => {
     return (
         <div className='w-4/5 px-6 flex flex-col items-center mb-16'>
             <h2 className='text-1.5 mb-4 font-semibold text-center	'> Brule's favorite breweries:</h2>
-            <div className=' w-3/5 flex-col flex lg:flex-row lg:gap-4 justify-center'>
+            <div className=' w-full flex-col flex lg:flex-row lg:gap-4 justify-center'>
                 {breweries.map(brewery => (
                 <Link className='w-full lg:w-60'  key={brewery.name}  href={`/breweries/${brewery._id}`} >
-                        <button className='h-12 bg-primary w-full lg:w-40 mb-2 lg:mb-4 text-white rounded'>{brewery.name}</button>
+                        <button className='h-12 bg-dark w-full  mb-2 lg:mb-4 text-white rounded'>{brewery.name}</button>
                     </Link>
                 ))}
             </div>
