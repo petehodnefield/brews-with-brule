@@ -6,6 +6,7 @@ import { CREATE_USER } from '../../utils/mutations'
 import Link from 'next/link';
 
 const SignupForm = () => {
+    const inputStyle = 'outline-none rounded-lg h-12 p-4 font-semibold text-0.875 focus:outline-primary ease-in	duration-200'
 
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
 
@@ -47,7 +48,7 @@ const SignupForm = () => {
                 <label className='font-semibold text-0.875 mb-1'>Username</label>
                 <input 
                     required
-                    className='rounded-lg h-12 p-4 font-semibold text-0.875' 
+                    className={inputStyle} 
                     name='username' type='text'
                     value={formState.username}
                     onChange={handleChange}></input>
@@ -58,7 +59,7 @@ const SignupForm = () => {
                 <label className='font-semibold text-0.875 mb-1'>Email Address</label>
                 <input 
                     required
-                    className='rounded-lg h-12 p-4 font-semibold text-0.875' 
+                    className={inputStyle} 
                     name='email' 
                     type='email'
                     value={formState.email}
@@ -69,7 +70,7 @@ const SignupForm = () => {
                 <label className='font-semibold text-0.875 mb-1'>Confirm Email Address</label>
                 <input 
                     required
-                    className='rounded-lg h-12 p-4 font-semibold text-0.875' 
+                    className={inputStyle} 
                     name='emailConfirm' 
                     type='email'
                 ></input>
@@ -79,7 +80,7 @@ const SignupForm = () => {
                 <label className='font-semibold text-0.875 mb-1'>Create Password</label>
                 <input 
                     required
-                    className='rounded-lg h-12 p-4 font-semibold text-0.875' 
+                    className={inputStyle} 
                     name='password' 
                     type='password'
                     value={formState.password}
@@ -90,7 +91,7 @@ const SignupForm = () => {
                 <label className='font-semibold text-0.875 mb-1'>Confirm Password</label>
                 <input 
                     required
-                    className='rounded-lg h-12 p-4 font-semibold text-0.875' 
+                    className={inputStyle} 
                     name='passwordConfirm' 
                     type='password'
                 ></input>
