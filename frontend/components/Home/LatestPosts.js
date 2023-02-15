@@ -15,11 +15,11 @@ const LatestPosts = () => {
 
     return (
         <section className='flex flex-col items-center justify-start  lg:py-8'>
-            <h3 className='font-semibold lg:font-normal text-1 mb-6 lg:text-1.5'>Latest Posts</h3>
+            <h3 className='font-semibold md:font-normal text-1 mb-6 md:text-1.5'>Latest Posts</h3>
             
-            <div className='flex flex-col items-center justify-start px-6 lg:grid lg:justify-center lg:justify-items-center	 md:justify-center w-full lg:grid-cols-2	lg:grid-flow-row	lg:gap-y-8  mb-12 lg:mb-0'>
+            <div className='flex flex-col items-start justify-start px-6 md:grid lg:justify-center lg:justify-items-center	 md:justify-center w-full md:grid-cols-2 lg:grid-cols-3	lg:grid-flow-row	lg:gap-y-8  mb-12 lg:mb-0'>
                 {posts.map(post => (
-                    <article key={post.title} className='md:w-96 px-8 flex flex-col items-center justify-start mb-8 lg:mb-0'>
+                    <article key={post.title} className='w-full md:w-96 px-8 flex flex-col items-center justify-start mb-8 lg:mb-0'>
                         <div className='relative h-56 w-full bg-cover bg-center mb-4' style={{ backgroundImage: `url(https://images.unsplash.com/photo-1600788886242-5c96aabe3757?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80})` }}>
                                 <Link href={`${auth.loggedIn() ? `/post/${post._id}`: '/login'}`} className=' absolute bottom-0 right-0'>
                                     <button className='  h-10 bg-primary text-white  font-semibold text-0.875 w-28'>Full Post</button>
