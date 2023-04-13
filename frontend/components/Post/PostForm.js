@@ -1,17 +1,22 @@
-import React, {useState, useCallback} from 'react'
-import {useDropzone} from 'react-dropzone'
+import React, {useState} from 'react'
 import {  useMutation } from '@apollo/client';
 import {QUERY_ME} from '../../utils/queries'
 import { CREATE_POST} from '../../utils/mutations';
+import ImageUpload from './ImageUpload';
+
+
 
 const PostForm = () => {
     const [titleCharacterCount, setTitleCharacterCount] = useState(40)
     const [descriptionCharacterCount, setDescriptionCharacterCount] = useState(160)
 
+    // Upload image to AWS and set the bucket URL to postInfo.image
+
     const [postInfo, setPostInfo] = useState({
         title: '',
         description: '',
         location: '',
+        image: ''
     })
 
     const handleChange = (e) => {
@@ -53,17 +58,7 @@ const PostForm = () => {
 
         await window.location.replace('/')
     }
-    // const uploadFile = useMutation(UPLOAD_FILE, {
-    //     refetchQueries: [{query: filesQuery}]
-    // })
-
-    const onDrop = useCallback(
-        ([file]) => {
-            // uploadFile({variables: {file}})
-        }, [])
-
-      const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
-    
+ 
 
     return (
         <form  onSubmit={handleFormSubmit} id='postForm' className='w-full px-6 flex flex-col items-center justify-center md:w-3/5 pb-8'>
@@ -111,9 +106,7 @@ const PostForm = () => {
             <div className='flex items-left flex-col mb-4 w-full lg:w-80'>
     
             </div>
-        
-
-          
+        <ImageUpload></ImageUpload>
 
             {/* SUBMIT BTN */}
             <button type='submit' className='bg-dark rounded w-44 h-12 text-white mb-12 lg:w-80'>Submit</button>

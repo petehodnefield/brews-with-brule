@@ -24,7 +24,7 @@ const BreweryDetails =  ({queryID,}) => {
         <div className='h-full'>
             
             <section className='flex flex-col justify-start items-center w-full h-full'>
-                <BreweryImage></BreweryImage>
+                <BreweryImage brewery={thisBrewery}></BreweryImage>
                 <section className='xl:flex xl:justify-around xl:w-70 lg:mb-4'>
                     <article className=' flex flex-col '>
                         <BreweryName brewery={thisBrewery} ></BreweryName>

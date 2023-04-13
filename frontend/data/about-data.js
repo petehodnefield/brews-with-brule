@@ -5,13 +5,13 @@ export const teamInfo = [
         name: 'Peter Hodnefield',
         job: 'CEO',
         description: 'With a passion for creating unforgettable experiences, Peter has built Brews With Brule into a thriving business, known for its selection of craft beers and laid-back atmosphere. A true entrepreneur at heart, Peter is dedicated to providing a space for people to relax, catch up, and make memories over a cold one.',
-        image: 'https://scontent.ffcm1-2.fna.fbcdn.net/v/t39.30808-6/327165725_923662048636702_3565971482544392466_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=-j0pJr0hDHUAX9E8c5t&tn=yEYvnZYNnrftvpVP&_nc_ht=scontent.ffcm1-2.fna&oh=00_AfAdzye_3WVk60vhaUhwQmB3YnEAaLjpw-9pvokQoFOKww&oe=63EA9806'
+        image: 'https://avatars.githubusercontent.com/u/98546095?v=4'
     },
     {
         name: 'Tanner Greeley',
         job: 'CFO',
         description: "With a background in finance and a keen eye for detail, Tanner plays an instrumental role in ensuring the financial success of the company. He is responsible for managing the company's finances, creating financial strategies and ensuring that the company is financially stable.",
-        image: 'https://scontent.ffcm1-1.fna.fbcdn.net/v/t39.30808-6/328685291_716538380118573_7762206676870267551_n.jpg?stp=cp6_dst-jpg&_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=iVAddxd0LZQAX8ni2R4&_nc_ht=scontent.ffcm1-1.fna&oh=00_AfB8ebRnm9In09dgWurHfDEbPBJZ3RG453J0-S3tby4MzQ&oe=63EC2FF5'
+        image: 'https://www.pdga.com/files/styles/large/public/pictures/picture-1477941-1640798170.jpg?itok=cxwgHuHv'
     },
     {
         name: 'Max Friedrich',

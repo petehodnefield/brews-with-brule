@@ -15,7 +15,7 @@ const BreweryList = () => {
     console.log('indi', breweries)
     return (
         <div className='w-4/5 px-6 flex flex-col items-center mb-16'>
-            <h2 className='text-1.5 mb-4 font-semibold text-center	'> Brule's favorite breweries:</h2>
+            <h2 className='text-1.5 mb-4 font-semibold text-center	'> Brules favorite breweries:</h2>
             <div className=' w-full flex-col flex lg:flex-row lg:gap-4 justify-center'>
                 {breweries.map(brewery => (
                 <Link className='w-full lg:w-60'  key={brewery.name}  href={`/breweries/${brewery._id}`} >

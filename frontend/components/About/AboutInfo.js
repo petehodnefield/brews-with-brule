@@ -7,7 +7,7 @@ const AboutInfo = () => {
             <article className='flex flex-col pt-12 relative mb-12 lg:w-4/5 lg:flex-row lg:gap-12 lg:px-8 lg:justify-between  xl:w-64'>
                 <div className='px-6 md:px-40 lg:px-0  lg:w-660'>
                     <h2 className='text-1.5 italic mb-3 lg:mb-4'>About us</h2>
-                    <p className='text-0.875 mb-6 lg:mb-6'>Welcome to Brews With Brule! We're all about friends getting together to enjoy a cold one and have a good time. At our core, we believe in the power of friendship and the role that beer plays in bringing people together.
+                    <p className='text-0.875 mb-6 lg:mb-6'>Welcome to Brews With Brule! We&apos; re all about friends getting together to enjoy a cold one and have a good time. At our core, we believe in the power of friendship and the role that beer plays in bringing people together.
                     </p>
                     <a href="#team"><button className='bg-dark text-white w-full h-12 lg:w-60'>Meet the team</button></a>
                 </div>
@@ -19,7 +19,7 @@ const AboutInfo = () => {
                 <div className='px-6 md:px-40 lg:px-0 order-2 lg:pt-0	lg:pb-6'>
                     <h2 className='text-1.5 italic mb-3 lg:mb-4 text-primary '>A hub for beer enthusiasts</h2>
                     <p className='text-0.875 mb-6 lg:mb-6  '>
-                        Our website is a place for beer enthusiasts of all levels to come and learn more about the world of beer. From reviews of new and exciting brews, to tips and tricks for hosting the perfect beer tasting party with friends, we've got you covered.
+                        Our website is a place for beer enthusiasts of all levels to come and learn more about the world of beer. From reviews of new and exciting brews, to tips and tricks for hosting the perfect beer tasting party with friends, we&apos;ve got you covered.
                     </p>
                         <Link href='/breweries' >
                             <button className='bg-primary text-white w-full h-12 lg:w-60'>
@@ -41,7 +41,7 @@ const AboutInfo = () => {
                 <div className='px-6 md:px-40 lg:px-0   '>
                     <h2 className='text-1.5 italic mb-3  lg:mb-4'>A community for beer lovers to share their passion.</h2>
                     <p className='text-0.875 mb-6 lg:mb-6 lg:w-660'>
-                        We're dedicated to providing a fun and welcoming space for all beer lovers to come and share their passion. So grab a cold one and join us on our journey of discovery through the world of beer and friendship.
+                        We&apos;re dedicated to providing a fun and welcoming space for all beer lovers to come and share their passion. So grab a cold one and join us on our journey of discovery through the world of beer and friendship.
                     </p>
                     <Link href='/signup'>
                         <button className='bg-dark text-white w-full h-12 lg:w-60'>Join us today!</button>
