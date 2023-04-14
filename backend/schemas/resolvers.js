@@ -145,27 +145,31 @@ const resolvers = {
     // Post Mutations
     addPost: async (parent, args) => {
       const { title, description, location, image } = args;
-      const result = await cloudinary.uploader.upload(
-        "https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
-        { public_id: "olympic_flag" }
-      );
+      try {
+        const result = await cloudinary.uploader.upload(image, {
+          folder: "post-images",
+          width: 300,
+        });
 
-      const post = await Post.create({
-        title,
-        description,
-        location,
-        image: {
-          public_id: result.public_id,
-          url: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
-        },
-      });
+        const post = await Post.create({
+          title,
+          description,
+          location,
+          image: {
+            public_id: result.public_id,
+            url: result.secure_url,
+          },
+        });
 
-      await User.findByIdAndUpdate(
-        { _id: args.user_id },
-        { $push: { posts: post._id } },
-        { new: true }
-      );
-      return post;
+        await User.findByIdAndUpdate(
+          { _id: args.user_id },
+          { $push: { posts: post._id } },
+          { new: true }
+        );
+        return post;
+      } catch (e) {
+        console.log(e);
+      }
     },
 
     updatePost: async (parent, args) => {

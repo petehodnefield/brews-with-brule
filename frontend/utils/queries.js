@@ -9,7 +9,7 @@ export const QUERY_ME = gql`
       bio
     }
   }
-`
+`;
 export const USERS = gql`
   query Users {
     users {
@@ -23,12 +23,12 @@ export const USERS = gql`
         description
         location
         image
-    
+
         createdAt
       }
     }
   }
-`
+`;
 
 export const SINGLE_USER = gql`
   query Query($id: ID!) {
@@ -50,27 +50,30 @@ export const SINGLE_USER = gql`
       }
     }
   }
-`
+`;
 
 export const POSTS = gql`
-    query Query {
-        posts {
-            _id
-            description
-            location
-            reactions {
-                _id
-                username
-            }
-            title
-            image
-            createdAt
-        }
+  query Query {
+    posts {
+      _id
+      description
+      location
+      reactions {
+        _id
+        username
+      }
+      title
+      image {
+        public_id
+        url
+      }
+      createdAt
     }
-`
+  }
+`;
 
 export const SINGLE_POST = gql`
-query Query($id: ID!) {
+  query Query($id: ID!) {
     post(_id: $id) {
       _id
       title
@@ -86,25 +89,25 @@ query Query($id: ID!) {
       createdAt
     }
   }
-`
+`;
 
 export const BREWERIES = gql`
-    query Query {
-        breweries {
-            _id
-            name
-            description
-            location
-            optionsAvailable
-            price
-            rating
-            image
-            hours
-        }
+  query Query {
+    breweries {
+      _id
+      name
+      description
+      location
+      optionsAvailable
+      price
+      rating
+      image
+      hours
     }
-`
+  }
+`;
 export const SINGLE_BREWERY = gql`
-query Query($id: ID!) {
+  query Query($id: ID!) {
     brewery(_id: $id) {
       _id
       name
@@ -117,4 +120,4 @@ query Query($id: ID!) {
       image
     }
   }
-`
+`;

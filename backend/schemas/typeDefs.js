@@ -11,8 +11,8 @@ const typeDefs = gql`
   }
 
   type Image {
-    public_id: String!
-    url: String!
+    public_id: String
+    url: String
   }
 
   type Post {
@@ -87,6 +87,7 @@ const typeDefs = gql`
       location: String!
       image: String!
     ): Post
+
     updatePost(
       _id: ID!
       title: String
@@ -104,6 +105,7 @@ const typeDefs = gql`
       optionsAvailable: String
       rating: String
     ): Brewery
+
     updateBrewery(
       _id: ID!
       name: String!
