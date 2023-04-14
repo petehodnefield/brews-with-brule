@@ -79,7 +79,10 @@ export const SINGLE_POST = gql`
       title
       description
       location
-      image
+      image {
+        public_id
+        url
+      }
       reactions {
         _id
         reactionBody
