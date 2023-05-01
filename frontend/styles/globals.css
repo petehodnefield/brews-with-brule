@@ -16,7 +16,16 @@ body {
   line-height: 125%;
 }
 
-button:hover {
-  opacity: .85;
+button:hover,
+a:hover {
+  opacity: 0.85;
   transition: 250ms;
+}
+.home {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 19%,
+    rgba(247, 201, 19, 0.22314863445378152) 100%
+  );
 }
